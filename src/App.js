@@ -4,11 +4,13 @@ import UseStateCom from "./components/useStateCom";
 import UseContextCom1 from "./components/useContextCom1";
 import UseReducerCom from "./components/useReducerCom";
 import UseEffectCom from "./components/useEffectCom";
+import useOnlineStatus from "./components/useOnlineStatus";
 
 //2.useContext
 export const nameContext = React.createContext("");
 
 export default function App() {
+  const isOnline = useOnlineStatus();
   return (
     <div className="App">
       <header className="App-header">
@@ -25,6 +27,8 @@ export default function App() {
         <UseReducerCom />
         <p>4.UseEffect</p>
         <UseEffectCom />
+        <p>5.自定义hooks</p>
+        <h1>{isOnline ? "✅ Online" : "❌ Disconnected"}</h1>
       </div>
     </div>
   );
